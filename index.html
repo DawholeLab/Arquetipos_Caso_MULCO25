@@ -139,7 +139,7 @@
 
     <!-- Table of Contents -->
 <!-- Table of Contents -->
-<aside id="toc" class="w-64 bg-gray-900 text-white min-h-screen fixed left-0 top-0 flex flex-col hidden transition-transform transform">
+<aside id="toc" class="fixed top-0 left-0 w-64 bg-gray-900 text-white min-h-screen flex flex-col hidden">
   <div class="p-6 flex-1 overflow-y-auto">
     <h2 class="serif-heading text-xl font-bold mb-4">Índice</h2>
     <div class="space-y-3">
@@ -1048,7 +1048,7 @@
         document.querySelectorAll('section[id]').forEach(section => {
             observer.observe(section);
         });
-   <script>
+  <script>
   const mobileToggle = document.getElementById("mobile-toc-toggle");
   const toc = document.getElementById("toc");
 
@@ -1058,7 +1058,9 @@
 </script>
 
 
+
 </body></html>
+
 
 
 
