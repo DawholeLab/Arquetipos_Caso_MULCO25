@@ -1,0 +1,1014 @@
+<!DOCTYPE html><html lang="es"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Arquetipos Estratégicos: Caso Miguel Uribe Londoño</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <style>
+        :root {
+            --primary: #1e293b;
+            --secondary: #475569;
+            --accent: #3b82f6;
+            --muted: #64748b;
+            --background: #f8fafc;
+            --surface: #ffffff;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--primary);
+            line-height: 1.7;
+        }
+        
+        .serif-heading {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e293b 0%, #475569 50%, #3b82f6 100%);
+        }
+        
+        .toc-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--surface);
+            border-right: 1px solid #e2e8f0;
+            overflow-y: auto;
+            z-index: 50;
+            padding: 2rem 1.5rem;
+        }
+        
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+        
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            margin: 3rem 0;
+        }
+        
+        .archetype-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-left: 4px solid var(--accent);
+        }
+        
+        .matrix-cell {
+            border: 2px solid #e2e8f0;
+            background: var(--surface);
+            transition: all 0.3s ease;
+        }
+        
+        .matrix-cell:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.1);
+        }
+        
+        .citation-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted var(--accent);
+        }
+        
+        .citation-link:hover {
+            background-color: rgba(59, 130, 246, 0.1);
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        
+        @media (max-width: 1024px) {
+            .toc-fixed {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+            
+            .toc-fixed.mobile-open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+        }
+        
+        img {
+            max-width: 100%;
+        }
+        
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+        }
+        
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        @media (min-width: 768px) {
+            .bento-grid {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+        
+        .bento-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+    </style>
+  </head>
+
+  <body>
+    <!-- Mobile TOC Toggle -->
+    <button class="lg:hidden fixed top-4 left-4 z-50 bg-white p-3 rounded-lg shadow-lg" id="mobile-toc-toggle">
+      <i class="fas fa-bars text-gray-600"></i>
+    </button>
+
+    <!-- Table of Contents -->
+    <nav class="toc-fixed" id="toc">
+      <div class="mb-8">
+        <h2 class="serif-heading text-xl font-bold text-gray-900 mb-4">Índice</h2>
+        <div class="space-y-3">
+          <a class="block text-sm text-gray-600 hover:text-blue-600 transition-colors" href="#introduccion">1. Marco Teórico</a>
+          <a class="block text-sm text-gray-600 hover:text-blue-600 transition-colors" href="#arquetipos">1.1 Modelo de 12 Arquetipos</a>
+          <a class="block text-sm text-gray-600 hover:text-blue-600 transition-colors" href="#matriz">1.2 Matriz de Cuadrantes</a>
+          <a class="block text-sm text-gray-600 hover:text-blue-600 transition-colors" href="#formula">1.3 Fórmula Estratégica</a>
+          <a class="block text-sm text-gray-600 hover:text-blue-600 transition-colors" href="#figuras">2. Figuras Históricas</a>
+          <a class="block text-sm text-gray-600 hover:text-blue-600 transition-colors" href="#lincoln">2.1 Abraham Lincoln</a>
+          <a class="block text-sm text-gray-600 hover:text-blue-600 transition-colors" href="#churchill">2.2 Winston Churchill</a>
+          <a class="block text-sm text-gray-600 hover:text-blue-600 transition-colors" href="#mandela">2.3 Nelson Mandela</a>
+          <a class="block text-sm text-gray-600 hover:text-blue-600 transition-colors" href="#marcas">3. Marcas Comerciales</a>
+          <a class="block text-sm text-gray-600 hover:text-blue-600 transition-colors" href="#volvo">3.1 Volvo</a>
+          <a class="block text-sm text-gray-600 hover:text-blue-600 transition-colors" href="#nestle">3.2 Nestlé</a>
+          <a class="block text-sm text-gray-600 hover:text-blue-600 transition-colors" href="#google">3.3 Google</a>
+          <a class="block text-sm text-gray-600 hover:text-blue-600 transition-colors" href="#aplicacion">4. Aplicación a Miguel Uribe Londoño</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section class="hero-gradient text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+          <img alt="Edificios gubernamentales clásicos" class="w-full h-full object-cover" src="https://kimi-web-img.moonshot.cn/img/www.telemundo.com/af5d2a7e9dde6d88f48a25326906ccac302c76d2.jpg" size="wallpaper" aspect="wide" style="photo" query="edificios gubernamentales clásicos" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+        </div>
+        <div class="relative z-10 px-4 md:px-8 py-16">
+          <div class="bento-grid max-w-7xl mx-auto">
+            <div class="bento-item">
+              <h1 class="serif-heading hero-title font-bold mb-6 text-white">
+                <em class="block text-2xl font-normal mb-2 opacity-90">Investigación Estratégica</em>
+                Arquetipos y Comunicación Política
+              </h1>
+              <p class="text-lg opacity-90 leading-relaxed">
+                Un análisis profundo del posicionamiento basado en arquetipos:
+                aplicación al caso de Miguel Uribe Londoño a través del modelo
+                Gobernante-Cuidador-Sabio
+              </p>
+            </div>
+            <div class="bento-item">
+              <div class="grid grid-cols-2 gap-4 text-sm">
+                <div>
+                  <h3 class="font-semibold mb-2">Gobernante</h3>
+                  <p class="opacity-80">Orden, control y resultados</p>
+                </div>
+                <div>
+                  <h3 class="font-semibold mb-2">Cuidador</h3>
+                  <p class="opacity-80">Compasión y bienestar</p>
+                </div>
+                <div>
+                  <h3 class="font-semibold mb-2">Sabio</h3>
+                  <p class="opacity-80">Rigor y evidencia</p>
+                </div>
+                <div>
+                  <h3 class="font-semibold mb-2">Aplicación</h3>
+                  <p class="opacity-80">Estrategia electoral</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Introduction -->
+      <section class="px-4 md:px-8 py-16 bg-white" id="introduccion">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12">
+            <h2 class="serif-heading text-4xl font-bold mb-6 text-gray-900">
+              Marco Teórico: La Arquitectura de los Arquetipos
+            </h2>
+            <p class="text-xl text-gray-600 leading-relaxed">
+              La teoría de los arquetipos de Jung y Pearson proporciona un marco analítico para comprender
+              cómo las figuras públicas construyen identidades resonantes y duraderas.
+            </p>
+          </div>
+
+          <div class="prose prose-lg max-w-none">
+            <p>
+              La teoría de los arquetipos, desarrollada por Carl Gustav Jung y adaptada al branding por
+              <a class="citation-link" href="https://www.pixartprinting.es/blog/una-identidad-de-marca-eficaz/" target="_blank">Margaret Mark y Carol S. Pearson</a>,
+              propone la existencia de patrones de comportamiento universales en el inconsciente colectivo.
+              Estos arquetipos, que se manifiestan en mitos y símbolos de todas las culturas, representan
+              modelos de personalidad que resuenan profundamente en las personas.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- 12 Archetypes Model -->
+      <section class="px-4 md:px-8 py-16 bg-gray-50" id="arquetipos">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="serif-heading text-3xl font-bold mb-12 text-center text-gray-900">
+            El Modelo de los 12 Arquetipos
+          </h2>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            <div class="matrix-cell p-6 rounded-lg">
+              <h3 class="serif-heading text-xl font-bold mb-3 text-blue-600">Gobernante</h3>
+              <p class="text-sm text-gray-600 mb-3">Orden, control, liderazgo</p>
+              <div class="text-xs text-gray-500">
+                <strong>Ejemplos:</strong> Mercedes-Benz, Rolex
+              </div>
+            </div>
+
+            <div class="matrix-cell p-6 rounded-lg">
+              <h3 class="serif-heading text-xl font-bold mb-3 text-green-600">Cuidador</h3>
+              <p class="text-sm text-gray-600 mb-3">Protección, compasión, servicio</p>
+              <div class="text-xs text-gray-500">
+                <strong>Ejemplos:</strong> Volvo, Johnson &amp; Johnson
+              </div>
+            </div>
+
+            <div class="matrix-cell p-6 rounded-lg">
+              <h3 class="serif-heading text-xl font-bold mb-3 text-purple-600">Sabio</h3>
+              <p class="text-sm text-gray-600 mb-3">Sabiduría, conocimiento, verdad</p>
+              <div class="text-xs text-gray-500">
+                <strong>Ejemplos:</strong> Google, TED
+              </div>
+            </div>
+
+            <div class="matrix-cell p-6 rounded-lg">
+              <h3 class="serif-heading text-xl font-bold mb-3 text-orange-600">Héroe</h3>
+              <p class="text-sm text-gray-600 mb-3">Coraje, determinación, honor</p>
+              <div class="text-xs text-gray-500">
+                <strong>Ejemplos:</strong> Nike, Land Rover
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white p-8 rounded-lg shadow-sm">
+            <h3 class="serif-heading text-2xl font-bold mb-6 text-gray-900">Cuadrantes de Clasificación</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+              <div>
+                <h4 class="font-semibold text-lg mb-3 text-blue-600">Estabilidad (Order)</h4>
+                <ul class="space-y-2 text-gray-600">
+                  <li>• Gobernante: poder y control</li>
+                  <li>• Cuidador: protección y servicio</li>
+                  <li>• Creador: innovación y expresión</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg mb-3 text-green-600">Independencia</h4>
+                <ul class="space-y-2 text-gray-600">
+                  <li>• Inocente: pureza y simplicidad</li>
+                  <li>• Explorador: libertad y aventura</li>
+                  <li>• Sabio: sabiduría y verdad</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Matrix Section -->
+      <section class="px-4 md:px-8 py-16 bg-white" id="matriz">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="serif-heading text-3xl font-bold mb-12 text-center text-gray-900">
+            La Matriz de Cuadrantes: Efecto Interno vs. Externo
+          </h2>
+
+          <div class="bg-gray-50 p-8 rounded-lg">
+            <div class="grid md:grid-cols-2 gap-12">
+              <div>
+                <h3 class="serif-heading text-xl font-bold mb-4 text-blue-600">Gobernante: Efecto Externo / Resultados</h3>
+                <p class="text-gray-600 mb-4">
+                  El Gobernante se enfoca en crear estructuras, sistemas e instituciones que garanticen prosperidad y seguridad a largo plazo. Su impacto es medible y tangible, orientado a resultados concretos que benefician a la colectividad.
+                </p>
+                <div class="text-sm text-gray-500">
+                  <strong>Promesa:</strong> Un entorno predecible y controlado donde las reglas son claras y se cumplen, fomentando confianza e inversión.
+                </div>
+              </div>
+
+              <div>
+                <h3 class="serif-heading text-xl font-bold mb-4 text-green-600">Cuidador: Efecto Interno / Gente</h3>
+                <p class="text-gray-600 mb-4">
+                  El Cuidador se centra en el bienestar emocional y relacional de las personas. Su impacto es interno, buscando sanar heridas, proteger a los vulnerables y fomentar la conexión y empatía.
+                </p>
+                <div class="text-sm text-gray-500">
+                  <strong>Promesa:</strong> Un Estado que no solo gobierna, sino que también cuida, que está presente en los momentos de dolor y vulnerabilidad.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Strategic Formula -->
+      <section class="px-4 md:px-8 py-16 bg-gray-50" id="formula">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="serif-heading text-3xl font-bold mb-12 text-center text-gray-900">
+            La Fórmula Estratégica: Gobernante + Cuidador + Sabio
+          </h2>
+
+          <div class="space-y-8">
+            <div class="archetype-card p-6 rounded-lg">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                  <i class="fas fa-crown text-white"></i>
+                </div>
+                <div>
+                  <h3 class="serif-heading text-xl font-bold text-gray-900">Gobernante (Núcleo)</h3>
+                  <p class="text-gray-600">Orden institucional y confianza</p>
+                </div>
+              </div>
+              <p class="text-gray-700">
+                En un contexto de inseguridad, la promesa de liderazgo fuerte y estable es un mensaje poderoso. El Gobernante transmite la imagen de un líder capaz de imponer orden y devolver la confianza en las instituciones.
+              </p>
+            </div>
+
+            <div class="archetype-card p-6 rounded-lg">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mr-4">
+                  <i class="fas fa-heart text-white"></i>
+                </div>
+                <div>
+                  <h3 class="serif-heading text-xl font-bold text-gray-900">Cuidador (Co-Arquetipo)</h3>
+                  <p class="text-gray-600">Seguridad como cuidado de la vida</p>
+                </div>
+              </div>
+              <p class="text-gray-700">
+                Humaniza y amplía el mensaje del Gobernante. La seguridad se transforma de simple promesa de mano dura a una visión compasiva de un &#34;Estado que protege&#34;, conectando con moderados y mujeres urbanas.
+              </p>
+            </div>
+
+            <div class="archetype-card p-6 rounded-lg">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mr-4">
+                  <i class="fas fa-brain text-white"></i>
+                </div>
+                <div>
+                  <h3 class="serif-heading text-xl font-bold text-gray-900">Sabio (Soporte)</h3>
+                  <p class="text-gray-600">Rigor, métricas y evidencia</p>
+                </div>
+              </div>
+              <p class="text-gray-700">
+                Otorga credibilidad y solidez. Aporta rigor y análisis basado en datos, anclando las promesas en indicadores concretos y verificables, evitando la épica vacía.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Historical Figures -->
+      <section class="px-4 md:px-8 py-16 bg-white" id="figuras">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="serif-heading text-3xl font-bold mb-12 text-center text-gray-900">
+            Análisis de Figuras Históricas: Referentes del Liderazgo Combinado
+          </h2>
+
+          <div class="mb-12">
+            <img alt="Abraham Lincoln, Winston Churchill y Nelson Mandela" class="w-full h-64 object-cover rounded-lg mb-8" src="https://kimi-web-img.moonshot.cn/img/cdn.images.express.co.uk/350b56200d38281b87fccba0ec6e9845c297dc2f.jpg" size="medium" aspect="wide" style="photo" query="Abraham Lincoln Winston Churchill Nelson Mandela" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+          </div>
+
+          <div class="space-y-16">
+            <!-- Abraham Lincoln -->
+            <div class="bg-gray-50 p-8 rounded-lg" id="lincoln">
+              <div class="grid lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                  <h3 class="serif-heading text-2xl font-bold mb-6 text-gray-900">Abraham Lincoln: La Unión de la Autoridad y la Compasión</h3>
+
+                  <div class="space-y-6">
+                    <div>
+                      <h4 class="font-semibold text-lg mb-3 text-blue-600">Gobernante: Preservación de la Unión</h4>
+                      <p class="text-gray-700 mb-3">
+                        Lincoln encarna el arquetipo del Gobernante a través de su liderazgo inquebrantable durante la Guerra Civil. Su decisión de suspender el <em>habeas corpus</em> demostró una firmeza orientada a restaurar el orden y la estabilidad.
+                      </p>
+                      <div class="text-sm text-gray-500">
+                        <strong>Sombra gestionada:</strong> Evitó caer en la tiranía mediante la transparencia y el compromiso con la reconstrucción nacional.
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 class="font-semibold text-lg mb-3 text-green-600">Cuidador: &#34;Curar las heridas&#34;</h4>
+                      <p class="text-gray-700 mb-3">
+                        Su discurso de segundo inauguración, pidiendo a la nación &#34;curar las heridas&#34; y &#34;no albergar malicia&#34;, muestra su faceta de Cuidador, preocupado por el bienestar del pueblo durante la reconstrucción.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 class="font-semibold text-lg mb-3 text-purple-600">Sabio: Sabiduría práctica</h4>
+                      <p class="text-gray-700">
+                        Conocido por su capacidad para mediar y encontrar soluciones justas y duraderas, Lincoln conectó la sabiduría con la realidad práctica de la gente.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg">
+                  <h4 class="font-semibold mb-4">Mottos Clave</h4>
+                  <div class="space-y-3 text-sm">
+                    <div class="p-3 bg-blue-50 rounded">
+                      <strong class="text-blue-600">Gobernante:</strong> &#34;Unión y Justicia&#34;
+                    </div>
+                    <div class="p-3 bg-green-50 rounded">
+                      <strong class="text-green-600">Cuidador:</strong> &#34;With malice toward none&#34;
+                    </div>
+                    <div class="p-3 bg-purple-50 rounded">
+                      <strong class="text-purple-600">Sabio:</strong> &#34;The better part of valor is discretion&#34;
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Winston Churchill -->
+            <div class="bg-gray-50 p-8 rounded-lg" id="churchill">
+              <div class="grid lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                  <h3 class="serif-heading text-2xl font-bold mb-6 text-gray-900">Winston Churchill: Liderazgo en Tiempos de Crisis</h3>
+
+                  <div class="space-y-6">
+                    <div>
+                      <h4 class="font-semibold text-lg mb-3 text-blue-600">Gobernante: Resistencia y determinación</h4>
+                      <p class="text-gray-700 mb-3">
+                        Churchill demostró el arquetipo del Gobernante durante la Segunda Guerra Mundial, manteniendo la moral y la resistencia del pueblo británico frente a la amenaza nazi.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 class="font-semibold text-lg mb-3 text-green-600">Cuidador: Inspiración y esperanza</h4>
+                      <p class="text-gray-700 mb-3">
+                        Su capacidad para inspirar y dar esperanza a la nación durante los difíciles años de guerra muestra su faceta de Cuidador, preocupado por el bienestar emocional de su pueblo.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 class="font-semibold text-lg mb-3 text-purple-600">Sabio: Visión estratégica</h4>
+                      <p class="text-gray-700">
+                        Conocido por su comprensión de las complejidades políticas y militares, Churchill encontró soluciones estratégicas y duraderas para la guerra y la posguerra.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg">
+                  <h4 class="font-semibold mb-4">Mottos Clave</h4>
+                  <div class="space-y-3 text-sm">
+                    <div class="p-3 bg-blue-50 rounded">
+                      <strong class="text-blue-600">Gobernante:</strong> &#34;We shall fight on the beaches&#34;
+                    </div>
+                    <div class="p-3 bg-green-50 rounded">
+                      <strong class="text-green-600">Cuidador:</strong> &#34;The only thing we have to fear is fear itself&#34;
+                    </div>
+                    <div class="p-3 bg-purple-50 rounded">
+                      <strong class="text-purple-600">Sabio:</strong> &#34;The truth is incontrovertible&#34;
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Nelson Mandela -->
+            <div class="bg-gray-50 p-8 rounded-lg" id="mandela">
+              <div class="grid lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                  <h3 class="serif-heading text-2xl font-bold mb-6 text-gray-900">Nelson Mandela: Transformación y Reconciliación</h3>
+
+                  <div class="space-y-6">
+                    <div>
+                      <h4 class="font-semibold text-lg mb-3 text-blue-600">Gobernante: Transición democrática</h4>
+                      <p class="text-gray-700 mb-3">
+                        Mandela lideró la transición a la democracia en Sudáfrica, manteniendo la estabilidad del país durante un proceso histórico de cambio.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 class="font-semibold text-lg mb-3 text-green-600">Cuidador: Reconciliación y perdón</h4>
+                      <p class="text-gray-700 mb-3">
+                        Se preocupó profundamente por el bienestar de las víctimas del apartheid, promoviendo la reconciliación y el perdón como vía para sanar las heridas nacionales.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 class="font-semibold text-lg mb-3 text-purple-600">Sabio: Educación y visión</h4>
+                      <p class="text-gray-700">
+                        Conocido por su sabiduría y comprensión de las raíces de la opresión, encontró soluciones pacíficas y duraderas para la nueva Sudáfrica.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg">
+                  <h4 class="font-semibold mb-4">Mottos Clave</h4>
+                  <div class="space-y-3 text-sm">
+                    <div class="p-3 bg-blue-50 rounded">
+                      <strong class="text-blue-600">Gobernante:</strong> &#34;The struggle is my life&#34;
+                    </div>
+                    <div class="p-3 bg-green-50 rounded">
+                      <strong class="text-green-600">Cuidador:</strong> &#34;Let freedom reign&#34;
+                    </div>
+                    <div class="p-3 bg-purple-50 rounded">
+                      <strong class="text-purple-600">Sabio:</strong> &#34;Education is the most powerful weapon&#34;
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Commercial Brands -->
+      <section class="px-4 md:px-8 py-16 bg-gray-50" id="marcas">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="serif-heading text-3xl font-bold mb-12 text-center text-gray-900">
+            Análisis de Marcas Comerciales: Aplicación Estratégica
+          </h2>
+
+          <div class="space-y-16">
+            <!-- Volvo -->
+            <div class="bg-white p-8 rounded-lg shadow-sm" id="volvo">
+              <div class="grid lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                  <h3 class="serif-heading text-2xl font-bold mb-6 text-gray-900">Volvo: Seguridad y Protección</h3>
+
+                  <div class="space-y-6">
+                    <div>
+                      <h4 class="font-semibold text-lg mb-3 text-blue-600">Gobernante: Liderazgo en seguridad</h4>
+                      <p class="text-gray-700 mb-3">
+                        Volvo es conocida por su liderazgo y calidad en seguridad automotriz. La marca se asocia con el arquetipo del Gobernante, transmitiendo confiabilidad, control y poder con su lema &#34;The best or nothing&#34;.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 class="font-semibold text-lg mb-3 text-green-600">Cuidador: Protección del conductor</h4>
+                      <p class="text-gray-700 mb-3">
+                        Ha sido pionera en sistemas de seguridad, mostrando una faceta de cuidado hacia el bienestar de sus clientes con programas de sostenibilidad y seguridad vial.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 class="font-semibold text-lg mb-3 text-purple-600">Sabio: Innovación tecnológica</h4>
+                      <p class="text-gray-700">
+                        Conocida por su capacidad para innovar en seguridad y tecnología, Volvo se asocia con el arquetipo del Sabio, constantemente mejorando sus productos para ofrecer soluciones avanzadas.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg">
+                  <h4 class="font-semibold mb-4">Mottos de Marca</h4>
+                  <div class="space-y-3 text-sm">
+                    <div class="p-3 bg-blue-50 rounded">
+                      <strong class="text-blue-600">Gobernante:</strong> &#34;Safety is our business&#34;
+                    </div>
+                    <div class="p-3 bg-green-50 rounded">
+                      <strong class="text-green-600">Cuidador:</strong> &#34;For life&#34;
+                    </div>
+                    <div class="p-3 bg-purple-50 rounded">
+                      <strong class="text-purple-600">Sabio:</strong> &#34;Innovation for life&#34;
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Nestlé -->
+            <div class="bg-white p-8 rounded-lg shadow-sm" id="nestle">
+              <div class="grid lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                  <h3 class="serif-heading text-2xl font-bold mb-6 text-gray-900">Nestlé: Nutrición y Bienestar</h3>
+
+                  <div class="space-y-6">
+                    <div>
+                      <h4 class="font-semibold text-lg mb-3 text-blue-600">Gobernante: Liderazgo en alimentos</h4>
+                      <p class="text-gray-700 mb-3">
+                        Nestlé es una marca líder en el sector alimenticio, asociada con el arquetipo del Gobernante. La marca se centra en la calidad y la innovación, ofreciendo productos de alta calidad y control.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 class="font-semibold text-lg mb-3 text-green-600">Cuidador: Responsabilidad social</h4>
+                      <p class="text-gray-700 mb-3">
+                        Ha implementado programas de responsabilidad social corporativa, mostrando una faceta de cuidado hacia sus clientes y el medio ambiente, invirtiendo en programas de salud y nutrición.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 class="font-semibold text-lg mb-3 text-purple-600">Sabio: Investigación y desarrollo</h4>
+                      <p class="text-gray-700">
+                        Conocida por su capacidad para anticiparse a las tendencias alimenticias y ofrecer soluciones innovadoras, Nestlé se asocia con el arquetipo del Sabio, siendo un referente en investigación y desarrollo.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg">
+                  <h4 class="font-semibold mb-4">Mottos de Marca</h4>
+                  <div class="space-y-3 text-sm">
+                    <div class="p-3 bg-blue-50 rounded">
+                      <strong class="text-blue-600">Gobernante:</strong> &#34;Good food, good life&#34;
+                    </div>
+                    <div class="p-3 bg-green-50 rounded">
+                      <strong class="text-green-600">Cuidador:</strong> &#34;Creating shared value&#34;
+                    </div>
+                    <div class="p-3 bg-purple-50 rounded">
+                      <strong class="text-purple-600">Sabio:</strong> &#34;Science-based nutrition&#34;
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Google -->
+            <div class="bg-white p-8 rounded-lg shadow-sm" id="google">
+              <div class="grid lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                  <h3 class="serif-heading text-2xl font-bold mb-6 text-gray-900">Google: Conocimiento y Accesibilidad</h3>
+
+                  <div class="space-y-6">
+                    <div>
+                      <h4 class="font-semibold text-lg mb-3 text-blue-600">Gobernante: Liderazgo tecnológico</h4>
+                      <p class="text-gray-700 mb-3">
+                        Google es un líder en la industria tecnológica, asociada con el arquetipo del Gobernante. La marca se centra en la innovación y la excelencia, ofreciendo soluciones tecnológicas de alta calidad y control.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 class="font-semibold text-lg mb-3 text-green-600">Cuidador: Acceso universal</h4>
+                      <p class="text-gray-700 mb-3">
+                        Ha implementado programas de responsabilidad social corporativa, mostrando una faceta de cuidado hacia sus empleados y la sociedad, invirtiendo en educación y desarrollo comunitario.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 class="font-semibold text-lg mb-3 text-purple-600">Sabio: Organización del conocimiento</h4>
+                      <p class="text-gray-700">
+                        Conocida por su capacidad para anticiparse a las tendencias tecnológicas y ofrecer soluciones innovadoras, Google se asocia con el arquetipo del Sabio, siendo un referente en investigación y desarrollo.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg">
+                  <h4 class="font-semibold mb-4">Mottos de Marca</h4>
+                  <div class="space-y-3 text-sm">
+                    <div class="p-3 bg-blue-50 rounded">
+                      <strong class="text-blue-600">Gobernante:</strong> &#34;Do the right thing&#34;
+                    </div>
+                    <div class="p-3 bg-green-50 rounded">
+                      <strong class="text-green-600">Cuidador:</strong> &#34;For everyone&#34;
+                    </div>
+                    <div class="p-3 bg-purple-50 rounded">
+                      <strong class="text-purple-600">Sabio:</strong> &#34;Organize the world&#39;s information&#34;
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Application to Miguel Uribe Londoño -->
+      <section class="px-4 md:px-8 py-16 bg-white" id="aplicacion">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="serif-heading text-3xl font-bold mb-12 text-center text-gray-900">
+            Aplicación a Miguel Uribe Londoño: Arquitectura Estratégica
+          </h2>
+
+          <div class="mb-12">
+            <img alt="Estrategia de posicionamiento político" class="w-full h-64 object-cover rounded-lg mb-8" src="https://kimi-web-img.moonshot.cn/img/www.rodrigodelolmo.com/d8abfa39e6e1a90a876443a3792a447a220ca4fe.png" size="medium" aspect="wide" query="estrategia posicionamiento político" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+          </div>
+
+          <div class="grid lg:grid-cols-3 gap-8 mb-12">
+            <!-- Gobernante -->
+            <div class="bg-blue-50 p-8 rounded-lg">
+              <div class="flex items-center mb-6">
+                <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+                  <i class="fas fa-crown text-white text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="serif-heading text-xl font-bold text-blue-900">Gobernante</h3>
+                  <p class="text-blue-700">Núcleo Estratégico</p>
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <div>
+                  <h4 class="font-semibold text-blue-800 mb-2">Motto</h4>
+                  <p class="text-blue-700 italic">&#34;Orden que cuida, Estado que cumple&#34;</p>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-blue-800 mb-2">Valores</h4>
+                  <ul class="text-blue-700 text-sm space-y-1">
+                    <li>• Liderazgo y estabilidad</li>
+                    <li>• Control y autoridad serena</li>
+                    <li>• Resultados medibles</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-blue-800 mb-2">Cualidades</h4>
+                  <ul class="text-blue-700 text-sm space-y-1">
+                    <li>• Capacidad para decisiones difíciles</li>
+                    <li>• Mantenimiento del orden institucional</li>
+                    <li>• Generación de prosperidad</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-red-600 mb-2">Sombra a Vigilar</h4>
+                  <p class="text-red-600 text-sm">Tirano (imposición, punitivismo simbólico)</p>
+                  <div class="mt-2 p-2 bg-red-50 rounded text-xs">
+                    <strong>Antídoto:</strong> Métricas públicas + rituales de servicio
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cuidador -->
+            <div class="bg-green-50 p-8 rounded-lg">
+              <div class="flex items-center mb-6">
+                <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mr-4">
+                  <i class="fas fa-heart text-white text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="serif-heading text-xl font-bold text-green-900">Cuidador</h3>
+                  <p class="text-green-700">Co-Arquetipo</p>
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <div>
+                  <h4 class="font-semibold text-green-800 mb-2">Motto</h4>
+                  <p class="text-green-700 italic">&#34;La seguridad es que tu vida esté a salvo&#34;</p>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-green-800 mb-2">Valores</h4>
+                  <ul class="text-green-700 text-sm space-y-1">
+                    <li>• Compasión y protección</li>
+                    <li>• Justicia social</li>
+                    <li>• Cuidado de los vulnerables</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-green-800 mb-2">Cualidades</h4>
+                  <ul class="text-green-700 text-sm space-y-1">
+                    <li>• Reconoce sufrimiento ajeno</li>
+                    <li>• Busca sanar heridas</li>
+                    <li>• Protege a víctimas y comerciantes</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-red-600 mb-2">Sombra a Vigilar</h4>
+                  <p class="text-red-600 text-sm">Salvador/Mártir (protección infinita)</p>
+                  <div class="mt-2 p-2 bg-red-50 rounded text-xs">
+                    <strong>Antídoto:</strong> Corresponsabilidad comunitaria + límites claros
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sabio -->
+            <div class="bg-purple-50 p-8 rounded-lg">
+              <div class="flex items-center mb-6">
+                <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mr-4">
+                  <i class="fas fa-brain text-white text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="serif-heading text-xl font-bold text-purple-900">Sabio</h3>
+                  <p class="text-purple-700">Soporte Técnico</p>
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <div>
+                  <h4 class="font-semibold text-purple-800 mb-2">Motto</h4>
+                  <p class="text-purple-700 italic">&#34;Menos discurso, más evidencia&#34;</p>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-purple-800 mb-2">Valores</h4>
+                  <ul class="text-purple-700 text-sm space-y-1">
+                    <li>• Sabiduría y conocimiento</li>
+                    <li>• Verdad y evidencia</li>
+                    <li>• Racionalidad aplicada</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-purple-800 mb-2">Cualidades</h4>
+                  <ul class="text-purple-700 text-sm space-y-1">
+                    <li>• Comprende causas profundas</li>
+                    <li>• Encuentra soluciones duraderas</li>
+                    <li>• Ancla promesas en indicadores</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="font-semibold text-red-600 mb-2">Sombra a Vigilar</h4>
+                  <p class="text-red-600 text-sm">Pedante/Escéptico frío</p>
+                  <div class="mt-2 p-2 bg-red-50 rounded text-xs">
+                    <strong>Antídoto:</strong> Traducir indicadores a beneficios cotidianos
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Strategic Implementation -->
+          <div class="bg-gray-50 p-8 rounded-lg">
+            <h3 class="serif-heading text-2xl font-bold mb-6 text-gray-900">Implementación Estratégica</h3>
+
+            <div class="grid md:grid-cols-2 gap-8">
+              <div>
+                <h4 class="font-semibold text-lg mb-4 text-blue-600">Para Primarias (60% Gobernante)</h4>
+                <ul class="space-y-2 text-gray-700">
+                  <li>• <strong>Lexema:</strong> &#34;orden estable y confiable&#34;</li>
+                  <li>• <strong>Enfoque:</strong> &#34;delito que se denuncia, delito que se condena&#34;</li>
+                  <li>• <strong>Visual:</strong> Institución en servicio</li>
+                  <li>• <strong>Público objetivo:</strong> Base de derecha</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="font-semibold text-lg mb-4 text-green-600">Para Presidenciales (45% Cuidador)</h4>
+                <ul class="space-y-2 text-gray-700">
+                  <li>• <strong>Lexema:</strong> &#34;cuidar la vida, recuperar el orden&#34;</li>
+                  <li>• <strong>Enfoque:</strong> &#34;tu negocio sin extorsión, tus trámites a tiempo&#34;</li>
+                  <li>• <strong>Visual:</strong> Protección y bienestar</li>
+                  <li>• <strong>Público objetivo:</strong> Coalición ampliada</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Communication Keys -->
+          <div class="mt-12 bg-white p-8 rounded-lg shadow-sm">
+            <h3 class="serif-heading text-2xl font-bold mb-6 text-gray-900">Claves de Comunicación por Arquetipo</h3>
+
+            <div class="grid md:grid-cols-3 gap-6">
+              <div class="p-6 bg-blue-50 rounded-lg">
+                <h4 class="font-semibold text-blue-800 mb-3">Gobernante (Core)</h4>
+                <p class="text-blue-700 text-sm mb-3">
+                  <strong>Claim:</strong> &#34;Orden que cuida, Estado que cumple&#34;
+                </p>
+                <p class="text-blue-600 text-xs">
+                  Pruebas: Metas trimestrales, condenas efectivas, tiempos 123, ↓ extorsión
+                </p>
+              </div>
+
+              <div class="p-6 bg-green-50 rounded-lg">
+                <h4 class="font-semibold text-green-800 mb-3">Cuidador (Co-core)</h4>
+                <p class="text-green-700 text-sm mb-3">
+                  <strong>Claim:</strong> &#34;La seguridad es que tu vida esté a salvo&#34;
+                </p>
+                <p class="text-green-600 text-xs">
+                  Pruebas: Protocolo de víctimas, protección a prensa, patrulla que llega
+                </p>
+              </div>
+
+              <div class="p-6 bg-purple-50 rounded-lg">
+                <h4 class="font-semibold text-purple-800 mb-3">Sabio (Soporte)</h4>
+                <p class="text-purple-700 text-sm mb-3">
+                  <strong>Claim:</strong> &#34;Menos discurso, más evidencia&#34;
+                </p>
+                <p class="text-purple-600 text-xs">
+                  Pruebas: Tablero de KPIs, auditorías ciudadanas, evaluación externa
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Conclusion -->
+          <div class="mt-12 bg-gradient-to-r from-blue-600 to-purple-600 p-8 rounded-lg text-white">
+            <h3 class="serif-heading text-2xl font-bold mb-4">Conclusión Operativa</h3>
+            <p class="text-lg leading-relaxed">
+              La arquitectura Gobernante (core) + Cuidador (co-core) + Sabio (soporte) conecta con realidad y verdad (indicadores y protocolos), es perceptible y comunicable (orden como cuidado, beneficios cotidianos), y maximiza primarias sin hipotecar la segunda vuelta. Este enfoque es equilibrado y estratégico, evitando las sombras peligrosas del autoritarismo y la venganza, y construyendo una imagen de liderazgo maduro y responsable.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="px-4 md:px-8 py-12 bg-gray-900 text-white">
+        <div class="max-w-4xl mx-auto text-center">
+          <h3 class="serif-heading text-xl font-bold mb-4">Investigación Estratégica sobre Arquetipos</h3>
+          <p class="text-gray-300 mb-6">
+            Análisis aplicado al posicionamiento político basado en modelos arquetípicos
+            y su implementación estratégica para construir identidades resonantes.
+          </p>
+          <div class="text-sm text-gray-400">
+            <p>Basado en la teoría de Jung y Pearson sobre arquetipos de marca.</p>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+        // Mobile TOC Toggle
+        const toggleButton = document.getElementById('mobile-toc-toggle');
+        const toc = document.getElementById('toc');
+        
+        toggleButton.addEventListener('click', () => {
+            toc.classList.toggle('mobile-open');
+        });
+
+        // Close TOC when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 1024 && 
+                !toc.contains(e.target) && 
+                e.target !== toggleButton &&
+                !e.target.closest('#mobile-toc-toggle')) {
+                toc.classList.remove('mobile-open');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile TOC after clicking
+                    if (window.innerWidth <= 1024) {
+                        toc.classList.remove('mobile-open');
+                    }
+                }
+            });
+        });
+
+        // Highlight active section in TOC
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -70% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    const tocLinks = document.querySelectorAll('#toc a');
+                    tocLinks.forEach(link => {
+                        link.classList.remove('text-blue-600', 'font-semibold');
+                        link.classList.add('text-gray-600');
+                    });
+                    const activeLink = document.querySelector(`#toc a[href="#${id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.remove('text-gray-600');
+                        activeLink.classList.add('text-blue-600', 'font-semibold');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section[id]').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+
+  
+
+</body></html>
